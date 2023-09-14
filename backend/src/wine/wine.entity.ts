@@ -1,3 +1,4 @@
+import { Review } from 'src/wine/review.entity'
 import { Price } from './price.entity'
 import {
   Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, JoinColumn, OneToOne,
@@ -17,10 +18,13 @@ export class Wine extends BaseEntity {
   @Column({ nullable: false })
   picture: string
 
-  @OneToOne(() => Price, { nullable: true, })
+  @OneToOne(() => Price, { nullable: true, eager: true })
   @JoinColumn()
   currentPrice: Price
 
   @OneToMany(() => Price, (price) => price.wine)
   prices: Price[]
+
+  @OneToMany(() => Review, (review) => review.wine)
+  reviews: Review[]
 }

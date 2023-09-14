@@ -5,10 +5,11 @@ import { WineController } from './wine.controller';
 import { WineService } from './wine.service';
 import { DatabaseModule } from '../core/database.module';
 import { Price } from './price.entity';
+import { Review } from 'src/wine/review.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Wine, Price]), DatabaseModule],
+    TypeOrmModule.forFeature([Wine, Price, Review]), DatabaseModule],
   controllers: [WineController],
   providers: [WineService],
 })

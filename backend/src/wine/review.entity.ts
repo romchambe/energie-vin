@@ -4,18 +4,17 @@ import {
 } from 'typeorm'
 
 @Entity()
-export class Price extends BaseEntity {
+export class Review extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number
 
   @Column({ nullable: false })
-  amount: number
+  rating: number
 
-  @Column({ nullable: true })
-  revisionDate?: Date
+  @Column({ nullable: false })
+  author: string
 
   @JoinColumn()
   @ManyToOne(() => Wine, { nullable: false })
   wine: Wine
-
 }

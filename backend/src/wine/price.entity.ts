@@ -1,4 +1,4 @@
-import { Wine } from 'src/wine/wine.entity'
+import { Wine } from './wine.entity'
 import {
   Entity, Column, PrimaryGeneratedColumn, BaseEntity, JoinColumn, ManyToOne,
 } from 'typeorm'
@@ -11,8 +11,8 @@ export class Price extends BaseEntity {
   @Column({ nullable: false })
   amount: number
 
-  @Column({ nullable: false })
-  revisionDate: Date
+  @Column({ nullable: true })
+  revisionDate?: Date
 
   @JoinColumn()
   @ManyToOne(() => Wine, { nullable: false })

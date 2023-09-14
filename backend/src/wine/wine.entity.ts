@@ -1,4 +1,4 @@
-import { Price } from 'src/wine/price.entity'
+import { Price } from './price.entity'
 import {
   Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, JoinColumn, OneToOne,
 } from 'typeorm'
@@ -17,7 +17,7 @@ export class Wine extends BaseEntity {
   @Column({ nullable: false })
   picture: string
 
-  @OneToOne(() => Price, { nullable: true })
+  @OneToOne(() => Price, { nullable: true, })
   @JoinColumn()
   currentPrice: Price
 

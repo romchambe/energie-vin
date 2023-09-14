@@ -2,12 +2,14 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { DatabaseModule } from 'src/core/database.module';
+import { DatabaseModule } from './database.module';
+import { WineModule } from '../wine/wine.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    DatabaseModule
+    DatabaseModule,
+    WineModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,9 +1,9 @@
 
 import { INestApplication } from '@nestjs/common';
-import { createNestTestApplication } from 'test/util';
-import request from 'supertest'
+import { createNestTestApplication } from '../src/core/test.util';
+import * as request from 'supertest'
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppModule } from 'src/core/app.module';
+import { AppModule } from '../src/core/app.module';
 
 describe('Wine Controller - e2e', () => {
   let app: INestApplication;
@@ -22,17 +22,29 @@ describe('Wine Controller - e2e', () => {
   describe('create wine', () => {
     it('creates a new wine ', () => {
       return request(app.getHttpServer())
-        .post('/wines').send({
+        .post('/api/wines').send({
           name: 'toto',
           year: 2012,
           picture: 'https://xyz.com',
           currentPrice: { amount: 100 }
         })
-        .expect(200)
-        .then(({ body: { data } }) => {
-          expect(data.name).toBe('toto')
-          expect(data.id).toBeDefined()
+        .expect(201)
+        .then(({ body }) => {
+          expect(body.name).toBe('toto')
+          expect(body.id).toBeDefined()
+          expect(body.currentPriceId).toBeDefined()
         })
+    });
+
+    it('rejects the request if invalid data is provided', () => {
+      return request(app.getHttpServer())
+        .post('/api/wines').send({
+          name: 'toto',
+          year: 2012,
+          picture: 'https://xyz.com',
+          currentPrice: { amount: -100 }
+        })
+        .expect(400)
     });
   });
 });

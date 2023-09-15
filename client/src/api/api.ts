@@ -7,7 +7,7 @@ export enum HttpVerb {
   PATCH = "patch",
 }
 
-const DEV_API_BASE_URL = "http://localhost:8000";
+const DEV_API_BASE_URL = "http://localhost:8000/api";
 
 export const getApiBaseUrl = () => DEV_API_BASE_URL;
 

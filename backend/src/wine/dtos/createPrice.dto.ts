@@ -7,5 +7,5 @@ export class CreatePriceDto {
   amount: number
 
   @IsOptional()
-  revisionDate: string
+  revisionDate?: string
 }

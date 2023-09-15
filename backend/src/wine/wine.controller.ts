@@ -35,7 +35,7 @@ export class WineController {
     type: Number,
     required: false
   })
-  @Get('/wines')
+  @Get('/list')
   listWines(
     @Query('maxPrice', ParseOptionalIntPipe) maxPrice?: number,
     @Query('minPrice', ParseOptionalIntPipe) minPrice?: number

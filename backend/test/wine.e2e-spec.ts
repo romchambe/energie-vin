@@ -5,8 +5,8 @@ import * as request from 'supertest'
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppModule } from 'src/core/app.module';
 import { DataSource } from 'typeorm';
-import { Wine } from 'src/wine/wine.entity';
-import { Price } from 'src/wine/price.entity';
+import { Wine } from 'src/wine/entities/wine.entity';
+import { Price } from 'src/wine/entities/price.entity';
 
 describe('Wine Controller - e2e', () => {
   let app: INestApplication

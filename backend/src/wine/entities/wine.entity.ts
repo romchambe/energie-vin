@@ -1,4 +1,4 @@
-import { Review } from 'src/wine/review.entity'
+import { Review } from 'src/wine/entities/review.entity'
 import { Price } from './price.entity'
 import {
   Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, JoinColumn, OneToOne,

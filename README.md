@@ -6,7 +6,8 @@ Les notes de conception sont à retrouver sur [ce site Notion](https://fixed-fie
 
 ## Lancement de l'app
 
-_Prérequis : il est nécessaire d'avoir Docker installé sur sa machine ainsi qu'un package manager JS (yarn ou npm)_
+**Prérequis : il est nécessaire d'avoir Docker installé sur sa machine ainsi que Node.js**
 
+- Installer les dépendances dans les dossiers `client` et `backend`
 - Dans une fenêtre de terminal, lancer le backend et la BDD en local : `cd backend & yarn start:dev`
 - Dans une fenêtre de terminal, lancer le client : `cd client & yarn start:dev`
